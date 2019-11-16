@@ -46,4 +46,17 @@ Rectangle {
         anchors.fill: parent
         source: EnableCharts ? "./elements/StatusChart.qml" : ""
     }
+
+    Label {
+        id: peerLabel
+        color: "black"
+        text: "Peer address: " + link.link_peer
+        font.pixelSize: 12
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.bottomMargin: 12
+        anchors.rightMargin: 142
+
+        z: 1.1
+    }
 }
