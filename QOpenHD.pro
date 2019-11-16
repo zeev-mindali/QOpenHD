@@ -41,8 +41,25 @@ INCLUDEPATH += $$PWD/lib/mavlink_generated/include/mavlink/v2.0
 
 INCLUDEPATH += $$PWD/lib/GeographicLib-1.50/include
 
+INCLUDEPATH += $$PWD/lib/qmdnsengine/src/include
+
 
 SOURCES += \
+    lib/qmdnsengine/src/src/abstractserver.cpp \
+    lib/qmdnsengine/src/src/bitmap.cpp \
+    lib/qmdnsengine/src/src/browser.cpp \
+    lib/qmdnsengine/src/src/cache.cpp \
+    lib/qmdnsengine/src/src/dns.cpp \
+    lib/qmdnsengine/src/src/hostname.cpp \
+    lib/qmdnsengine/src/src/mdns.cpp \
+    lib/qmdnsengine/src/src/message.cpp \
+    lib/qmdnsengine/src/src/prober.cpp \
+    lib/qmdnsengine/src/src/provider.cpp \
+    lib/qmdnsengine/src/src/query.cpp \
+    lib/qmdnsengine/src/src/record.cpp \
+    lib/qmdnsengine/src/src/resolver.cpp \
+    lib/qmdnsengine/src/src/server.cpp \
+    lib/qmdnsengine/src/src/service.cpp \
     src/FPS.cpp \
     src/frskytelemetry.cpp \
     src/gpiomicroservice.cpp \
@@ -82,9 +99,39 @@ HEADERS += \
     inc/openhdrc.h \
     inc/openhdsettings.h \
     inc/openhdtelemetry.h \
+    inc/openhdvideostream.h \
+    inc/qmdnsengine_export.h \
     inc/qopenhdlink.h \
     inc/util.h \
-    inc/wifibroadcast.h
+    inc/wifibroadcast.h \
+    lib/json.hpp \
+    lib/qmdnsengine/src/include/qmdnsengine/abstractserver.h \
+    lib/qmdnsengine/src/include/qmdnsengine/bitmap.h \
+    lib/qmdnsengine/src/include/qmdnsengine/browser.h \
+    lib/qmdnsengine/src/include/qmdnsengine/cache.h \
+    lib/qmdnsengine/src/include/qmdnsengine/dns.h \
+    lib/qmdnsengine/src/include/qmdnsengine/hostname.h \
+    lib/qmdnsengine/src/include/qmdnsengine/mdns.h \
+    lib/qmdnsengine/src/include/qmdnsengine/message.h \
+    lib/qmdnsengine/src/include/qmdnsengine/prober.h \
+    lib/qmdnsengine/src/include/qmdnsengine/provider.h \
+    lib/qmdnsengine/src/include/qmdnsengine/query.h \
+    lib/qmdnsengine/src/include/qmdnsengine/record.h \
+    lib/qmdnsengine/src/include/qmdnsengine/resolver.h \
+    lib/qmdnsengine/src/include/qmdnsengine/server.h \
+    lib/qmdnsengine/src/include/qmdnsengine/service.h \
+    lib/qmdnsengine/src/src/bitmap_p.h \
+    lib/qmdnsengine/src/src/browser_p.h \
+    lib/qmdnsengine/src/src/cache_p.h \
+    lib/qmdnsengine/src/src/hostname_p.h \
+    lib/qmdnsengine/src/src/message_p.h \
+    lib/qmdnsengine/src/src/prober_p.h \
+    lib/qmdnsengine/src/src/provider_p.h \
+    lib/qmdnsengine/src/src/query_p.h \
+    lib/qmdnsengine/src/src/record_p.h \
+    lib/qmdnsengine/src/src/resolver_p.h \
+    lib/qmdnsengine/src/src/server_p.h \
+    lib/qmdnsengine/src/src/service_p.h
 
 DISTFILES += \
     android/AndroidManifest.xml \
