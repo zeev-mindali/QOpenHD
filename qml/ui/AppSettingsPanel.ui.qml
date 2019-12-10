@@ -123,7 +123,9 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.enable_speech
-                        onCheckedChanged: settings.enable_speech = checked
+                        onCheckedChanged: { 
+                            settings.enable_speech = checked
+                            link.setSettingBool("enable_speech", checked)
                     }
                 }
 
@@ -157,7 +159,10 @@ Item {
                         anchors.rightMargin: Qt.inputMethod.visible ? 78 : 18
 
                         value: settings.battery_cells
-                        onValueChanged: settings.battery_cells = value
+                        onValueChanged: { 
+                            settings.battery_cells = value
+                            link.setSettingNumber("battery_cells", value)
+                        }
                     }
                 }
 
@@ -186,7 +191,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.enable_imperial
-                        onCheckedChanged: settings.enable_imperial = checked
+                        onCheckedChanged: { 
+                            settings.enable_imperial = checked
+                            link.setSettingBool("enable_imperial", checked)
+                        }
                     }
                 }
 
@@ -285,6 +293,7 @@ Item {
                         }
                         onCurrentIndexChanged: {
                                 settings.color_shape = color_shape.get(currentIndex).color
+                                link.setSettingString("color_shape", settings.color_shape)
                         }
                     }
                 }
@@ -339,6 +348,7 @@ Item {
                         }
                         onCurrentIndexChanged: {
                                 settings.color_glow = color_glow.get(currentIndex).color
+                                link.setSettingString("color_glow", settings.color_glow)
                         }
                     }
                 }
@@ -393,6 +403,7 @@ Item {
                         }
                         onCurrentIndexChanged: {
                                 settings.color_text = color_text.get(currentIndex).color
+                                link.setSettingString("color_text", settings.color_text)
                         }
                     }
                 }
@@ -422,7 +433,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_downlink_rssi
-                        onCheckedChanged: settings.show_downlink_rssi = checked
+                        onCheckedChanged: {
+                            settings.show_downlink_rssi = checked
+                            link.setSettingBool("show_downlink_rssi", checked)
+                        }
                     }
                 }
 
@@ -451,7 +465,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_uplink_rssi
-                        onCheckedChanged: settings.show_uplink_rssi = checked
+                        onCheckedChanged: {
+                            settings.show_uplink_rssi = checked
+                            link.setSettingBool("show_uplink_rssi", checked)
+                        }
                     }
                 }
 
@@ -480,7 +497,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_bitrate
-                        onCheckedChanged: settings.show_bitrate = checked
+                        onCheckedChanged: {
+                            settings.show_bitrate = checked
+                            link.setSettingBool("show_bitrate", checked)
+                        }
                     }
                 }
 
@@ -509,7 +529,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_gps
-                        onCheckedChanged: settings.show_gps = checked
+                        onCheckedChanged: {
+                            settings.show_gps = checked
+                            link.setSettingBool("show_gps", checked)
+                        }
                     }
                 }
 
@@ -538,7 +561,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_home_distance
-                        onCheckedChanged: settings.show_home_distance = checked
+                        onCheckedChanged: {
+                            settings.show_home_distance = checked
+                            link.setSettingBool("show_home_distance", checked)
+                        }
                     }
                 }
 
@@ -567,7 +593,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_flight_timer
-                        onCheckedChanged: settings.show_flight_timer = checked
+                        onCheckedChanged: {
+                            settings.show_flight_timer = checked
+                            link.setSettingBool("show_flight_timer", checked)
+                        }
                     }
                 }
 
@@ -596,7 +625,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_flight_mode
-                        onCheckedChanged: settings.show_flight_mode = checked
+                        onCheckedChanged: {
+                            settings.show_flight_mode = checked
+                            link.setSettingBool("show_flight_mode", checked)
+                        }
                     }
                 }
 
@@ -625,7 +657,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_ground_status
-                        onCheckedChanged: settings.show_ground_status = checked
+                        onCheckedChanged: {
+                            settings.show_ground_status = checked
+                            link.setSettingBool("show_ground_status", checked)
+                        }
                     }
                 }
 
@@ -654,7 +689,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_air_status
-                        onCheckedChanged: settings.show_air_status = checked
+                        onCheckedChanged: {
+                            settings.show_air_status = checked
+                            link.setSettingBool("show_air_status", checked)
+                        }
                     }
                 }
 
@@ -683,7 +721,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_air_battery
-                        onCheckedChanged: settings.show_air_battery = checked
+                        onCheckedChanged: {
+                            settings.show_air_battery = checked
+                            link.setSettingBool("show_air_battery", checked)
+                        }
                     }
                 }
 
@@ -712,7 +753,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_message_hud
-                        onCheckedChanged: settings.show_message_hud = checked
+                        onCheckedChanged: {
+                            settings.show_message_hud = checked
+                            link.setSettingBool("show_message_hud", checked)
+                        }
                     }
                 }
 
@@ -741,7 +785,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_horizon
-                        onCheckedChanged: settings.show_horizon = checked
+                        onCheckedChanged: {
+                            settings.show_horizon = checked
+                            link.setSettingBool("show_horizon", checked)
+                        }
                     }
                 }
 
@@ -770,7 +817,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_fpv
-                        onCheckedChanged: settings.show_fpv = checked
+                        onCheckedChanged: {
+                            settings.show_fpv = checked
+                            link.setSettingBool("show_fpv", checked)
+                        }
                     }
                 }
 
@@ -799,7 +849,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_altitude
-                        onCheckedChanged: settings.show_altitude = checked
+                        onCheckedChanged: {
+                            settings.show_altitude = checked
+                            link.setSettingBool("show_altitude", checked)
+                        }
                     }
                 }
 
@@ -828,7 +881,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_speed
-                        onCheckedChanged: settings.show_speed = checked
+                        onCheckedChanged: {
+                            settings.show_speed = checked
+                            link.setSettingBool("show_speed", checked)
+                        }
                     }
                 }
 
@@ -857,7 +913,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_heading
-                        onCheckedChanged: settings.show_heading = checked
+                        onCheckedChanged: {
+                            settings.show_heading = checked
+                            link.setSettingBool("show_heading", checked)
+                        }
                     }
                 }
 
@@ -886,7 +945,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_altitude_second
-                        onCheckedChanged: settings.show_altitude_second = checked
+                        onCheckedChanged: {
+                            settings.show_altitude_second = checked
+                            link.setSettingBool("show_altitude", checked)
+                        }
                     }
                 }
 
@@ -915,7 +977,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_arrow
-                        onCheckedChanged: settings.show_arrow = checked
+                        onCheckedChanged: {
+                            settings.show_arrow = checked
+                            link.setSettingBool("show_arrow", checked)
+                        }
                     }
                 }
 
@@ -944,7 +1009,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_map
-                        onCheckedChanged: settings.show_map = checked
+                        onCheckedChanged: {
+                            settings.show_map = checked
+                            link.setSettingBool("show_map", checked)
+                        }
                     }
                 }
 
@@ -973,7 +1041,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_throttle
-                        onCheckedChanged: settings.show_throttle = checked
+                        onCheckedChanged: {
+                            settings.show_throttle = checked
+                            link.setSettingBool("show_throttle", checked)
+                        }
                     }
                 }
 
@@ -1133,7 +1204,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.show_pip_video
-                        onCheckedChanged: settings.show_pip_video = checked
+                        onCheckedChanged: {
+                            settings.show_pip_video = checked
+                            link.setSettingBool("show_pip_video", checked)
+                        }
                     }
                 }
 
@@ -1162,7 +1236,10 @@ Item {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         checked: settings.enable_lte_video
-                        onCheckedChanged: settings.enable_lte_video = checked
+                        onCheckedChanged: {
+                            settings.enable_lte_video = checked
+                            link.setSettingBool("enable_lte_video", checked)
+                        }
                     }
                 }
 

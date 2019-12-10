@@ -5,6 +5,9 @@
 #include <QMap>
 #include <QVariant>
 
+typedef QMap<QString, QVariant> VMap;
+
+
 #include <openhd/mavlink.h>
 
 

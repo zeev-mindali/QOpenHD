@@ -11,6 +11,10 @@ GroundPiSettingsPanelForm {
     property var pendingPreset: ({})
     property bool requireReboot: false
 
+    function syncLocalSettings() {
+        link.syncSettings();
+    }
+
     save.onClicked: {
         requireReboot = false;
 
@@ -22,6 +26,7 @@ GroundPiSettingsPanelForm {
         savedTimer.stop()
         showSavedCheckmark = false
         writeRemoteSettings();
+        syncLocalSettings();
     }
 
 

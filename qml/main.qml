@@ -167,6 +167,210 @@ ApplicationWindow {
         }
     }
 
+
+    Connections {
+        target: link
+
+        onSettingChangedBool: {
+            //settings.setValue(setting, value)
+            switch (setting) {
+            case "show_downlink_rssi":
+            settings.show_downlink_rssi = value;
+            break;
+            case "show_uplink_rssi":
+            settings.show_uplink_rssi = value;
+            break;
+            case "show_bitate":
+            settings.show_bitrate = value;
+            break;
+            case "show_air_battery":
+            settings.show_air_battery = value;
+            break;
+            case "show_gps":
+            settings.show_gps = value;
+            break;
+            case "show_home_distance":
+            settings.show_home_distance = value;
+            break;
+            case "show_flight_timer":
+            settings.show_flight_timer = value;
+            break;
+            case "show_flight_mode":
+            settings.show_flight_mode = value;
+            break;
+            case "show_ground_status":
+            settings.show_ground_status = value;
+            break;
+            case "show_air_status":
+            settings.show_air_status = value;
+            break;
+            case "show_message_hud":
+            settings.show_message_hud = value;
+            break;
+            case "show_horizon":
+            settings.show_horizon = value;
+            break;
+            case "show_fpv":
+            settings.show_fpv = value;
+            break;
+            case "show_altitude":
+            settings.show_altitude = value;
+            break;
+            case "show_speed":
+            settings.show_speed = value;
+            break;
+            case "show_heading":
+            settings.show_heading = value;
+            break;
+            case "show_altitude_second":
+            settings.show_altitude_second = value;
+            break;
+            case "show_arrow":
+            settings.show_arrow = value;
+            break;
+            case "show_map":
+            settings.show_map = value;
+            break;
+            case "show_throttle":
+            settings.show_throttle = value;
+            break;
+            case "show_pip_video":
+                    settings.show_pip_video = value;
+                    break;
+            default:
+            break;
+            }
+        }
+
+        onSettingChangedNumber: {
+            switch (setting) {
+                case "battery_cells":
+                    settings.battery_cells = value;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        onAllSettingsChanged: {
+            console.log("onAllSettingsChanged");
+
+            var _settingsModel = link.allSettings;
+
+            for (var setting in _settingsModel) {
+                console.log("received " + setting + " value");
+                var value = _settingsModel[setting];
+
+                switch (setting) {
+                case "show_downlink_rssi":
+                    settings.show_downlink_rssi = value;
+                    break;
+                case "show_uplink_rssi":
+                    settings.show_uplink_rssi = value;
+                    break;
+                case "show_bitate":
+                    settings.show_bitrate = value;
+                    break;
+                case "show_air_battery":
+                    settings.show_air_battery = value;
+                    break;
+                case "show_gps":
+                    settings.show_gps = value;
+                    break;
+                case "show_home_distance":
+                    settings.show_home_distance = value;
+                    break;
+                case "show_flight_timer":
+                    settings.show_flight_timer = value;
+                    break;
+                case "show_flight_mode":
+                    settings.show_flight_mode = value;
+                    break;
+                case "show_ground_status":
+                    settings.show_ground_status = value;
+                    break;
+                case "show_air_status":
+                    settings.show_air_status = value;
+                    break;
+                case "show_message_hud":
+                    settings.show_message_hud = value;
+                    break;
+                case "show_horizon":
+                    settings.show_horizon = value;
+                    break;
+                case "show_fpv":
+                    settings.show_fpv = value;
+                    break;
+                case "show_altitude":
+                    settings.show_altitude = value;
+                    break;
+                case "show_speed":
+                    settings.show_speed = value;
+                    break;
+                case "show_heading":
+                    settings.show_heading = value;
+                    break;
+                case "show_altitude_second":
+                    settings.show_altitude_second = value;
+                    break;
+                case "show_arrow":
+                    settings.show_arrow = value;
+                    break;
+                case "show_map":
+                    settings.show_map = value;
+                    break;
+                case "show_throttle":
+                    settings.show_throttle = value;
+                    break;
+                case "battery_cells":
+                    settings.battery_cells = value;
+                    break;
+                case "show_pip_video":
+                    settings.show_pip_video = value;
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+    }
+
+    function syncSettings() {
+        var sync = {};
+
+        sync['battery_cells'] = settings.battery_cells
+        sync['show_pip_video'] = settings.show_pip_video
+
+        sync['enable_imperial'] = settings.enable_imperial
+
+        // never sync these
+        //sync['enable_software_video_decoder'] = settings.enable_software_video_decoder
+        //sync['enable_speech'] = settings.enable_speech
+        //sync['enable_rc'] = settings.enable_rc
+
+
+        sync['show_downlink_rssi'] = settings.show_downlink_rssi
+        sync['show_uplink_rssi'] = settings.show_uplink_rssi
+        sync['show_bitrate'] = settings.show_bitrate
+        sync['show_air_battery'] = settings.show_air_battery
+        sync['show_gps'] = settings.show_gps
+        sync['show_home_distance'] = settings.show_home_distance
+        sync['show_flight_timer'] = settings.show_flight_timer
+        sync['show_flight_mode'] = settings.show_flight_mode
+        sync['show_ground_status'] = settings.show_ground_status
+        sync['show_air_status'] = settings.show_air_status
+        sync['show_message_hud'] = settings.show_message_hud
+        sync['show_horizon'] = settings.show_horizon
+        sync['show_fpv'] = settings.show_fpv
+        sync['show_altitude'] = settings.show_altitude
+        sync['show_speed'] = settings.show_speed
+        sync['show_heading'] = settings.show_heading
+        sync['show_altitude_second'] = settings.show_altitude_second
+        sync['show_arrow'] = settings.show_arrow
+        sync['show_map'] = settings.show_map
+        sync['show_throttle'] = settings.show_throttle
+    }
+
     //FrSkyTelemetry {
     //    id: frskyTelemetry
     //}

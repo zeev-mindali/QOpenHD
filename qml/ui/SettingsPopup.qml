@@ -35,8 +35,8 @@ SettingsPopupForm {
 
     closeButton.onClicked: {
         settings_popup.close();
+        syncLocalSettings();
     }
-
 
     MessageDialog {
         id: rebootDialog

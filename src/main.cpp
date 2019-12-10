@@ -164,6 +164,9 @@ int main(int argc, char *argv[]) {
     engine.rootContext()->setContextProperty("IsRaspPi", QVariant(false));
 #endif
 
+    qRegisterMetaType<VMap>("VMap");
+
+
     auto openhd = OpenHD::instance();
 
 #if defined(ENABLE_GSTREAMER)

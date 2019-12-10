@@ -11,8 +11,12 @@
 #include <QQmlPropertyMap>
 #include "util.h"
 
+#include "util.h"
+
 class QUdpSocket;
 
+
+Q_DECLARE_METATYPE(VMap);
 
 class OpenHDSettings : public QObject {
     Q_OBJECT
