@@ -82,6 +82,8 @@
         <file>ui/elements/SlideSwitchForm.ui.qml</file>
         <file>ui/elements/SlideSwitch.qml</file>
         <file>ui/ArdupilotParameterMap.qml</file>
+        <file>ui/DroneSettingsPanelForm.ui.qml</file>
+        <file>ui/DroneSettingsListView.ui.qml</file>
         <file>ui/GroundPiSettingsPanel.qml</file>
         <file>ui/widgets/GroundPowerWidget.qml</file>
         <file>ui/widgets/GroundPowerWidgetForm.ui.qml</file>
@@ -94,5 +96,6 @@
         <file>ui/elements/StatusChartForm.ui.qml</file>
         <file>ui/widgets/GPIOWidget.qml</file>
         <file>ui/widgets/GPIOWidgetForm.ui.qml</file>
+        <file>ui/DroneSettingsPanel.qml</file>
     </qresource>
 </RCC>

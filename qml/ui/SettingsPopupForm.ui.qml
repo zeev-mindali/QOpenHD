@@ -105,16 +105,40 @@ Popup {
         }
 
         Text {
-            id: statusButton
+            id: parametersSettingsButton
             y: 0
             width: parent.width
             height: 48
             anchors.top: groundPiSettingsButton.bottom
             leftPadding: 12
             MouseArea {
-                id: statusSettingsButtonMouseArea
+                id: parametersSettingsButtonMouseArea
                 anchors.fill: parent
                 onClicked: mainStackLayout.currentIndex = 2
+            }
+            text: "Drone Settings"
+            anchors.topMargin: 0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            font.pixelSize: 15
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+            color: mainStackLayout.currentIndex == 2 ? "#33aaff" : "#333333"
+        }
+
+        Text {
+            id: statusButton
+            y: 0
+            width: parent.width
+            height: 48
+            anchors.top: parametersSettingsButton.bottom
+            leftPadding: 12
+            MouseArea {
+                id: statusSettingsButtonMouseArea
+                anchors.fill: parent
+                onClicked: mainStackLayout.currentIndex = 3
             }
             text: "Status"
             anchors.right: parent.right
@@ -124,7 +148,7 @@ Popup {
             font.pixelSize: 15
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
-            color: mainStackLayout.currentIndex == 2 ? "#33aaff" : "#333333"
+            color: mainStackLayout.currentIndex == 3 ? "#33aaff" : "#333333"
         }
 
         Text {
@@ -137,7 +161,7 @@ Popup {
             MouseArea {
                 id: aboutButtonMouseArea
                 anchors.fill: parent
-                onClicked: mainStackLayout.currentIndex = 3
+                onClicked: mainStackLayout.currentIndex = 4
             }
             text: "About"
             anchors.topMargin: 0
@@ -148,7 +172,7 @@ Popup {
             font.pixelSize: 15
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
-            color: mainStackLayout.currentIndex == 3 ? "#33aaff" : "#333333"
+            color: mainStackLayout.currentIndex == 4 ? "#33aaff" : "#333333"
         }
 
 
@@ -204,6 +228,10 @@ Popup {
 
         GroundPiSettingsPanel {
             id: groundPiSettingsPanel
+        }
+
+        DroneSettingsPanel {
+            id: droneSettingsPanel
         }
 
         StatusPanel {
