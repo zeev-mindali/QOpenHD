@@ -73,6 +73,7 @@ Settings {
     property bool bitrate_declutter: false
     property double bitrate_warn: 0
     property double bitrate_caution: 0
+    property int bitrate_bright: 175
 
     property bool show_air_battery: true
     property double air_battery_opacity: 1

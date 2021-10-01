@@ -42,6 +42,8 @@ const QVector<QString> permissions({"android.permission.INTERNET",
 
 #include "linkmicroservice.h"
 
+#include "cammicroservice.h"
+
 #include "statusmicroservice.h"
 
 #include "statuslogmodel.h"
@@ -449,8 +451,23 @@ OpenHDAppleVideo *pipVideo = new OpenHDAppleVideo(OpenHDStreamTypePiP);
 
     auto airLinkMicroservice = new LinkMicroservice(nullptr, MicroserviceTargetAir, MavlinkTypeTCP);
     engine.rootContext()->setContextProperty("AirLinkMicroservice", airLinkMicroservice);
-    QObject::connect(openHDSettings, &OpenHDSettings::groundStationIPUpdated, airLinkMicroservice, &GPIOMicroservice::setGroundIP, Qt::QueuedConnection);
+    QObject::connect(openHDSettings, &OpenHDSettings::groundStationIPUpdated, airLinkMicroservice, &LinkMicroservice::setGroundIP, Qt::QueuedConnection);
     airLinkMicroservice->onStarted();
+
+    auto groundLinkMicroservice = new LinkMicroservice(nullptr, MicroserviceTargetGround, MavlinkTypeTCP);
+    engine.rootContext()->setContextProperty("GroundLinkMicroservice", groundLinkMicroservice);
+    QObject::connect(openHDSettings, &OpenHDSettings::groundStationIPUpdated, groundLinkMicroservice, &LinkMicroservice::setGroundIP, Qt::QueuedConnection);
+    groundLinkMicroservice->onStarted();
+
+    auto airCamMicroservice = new CamMicroservice(nullptr, MicroserviceTargetAir, MavlinkTypeTCP);
+    engine.rootContext()->setContextProperty("AirCamMicroservice", airCamMicroservice);
+    QObject::connect(openHDSettings, &OpenHDSettings::groundStationIPUpdated, airCamMicroservice, &CamMicroservice::setGroundIP, Qt::QueuedConnection);
+    airCamMicroservice->onStarted();
+
+    auto groundCamMicroservice = new CamMicroservice(nullptr, MicroserviceTargetGround, MavlinkTypeTCP);
+    engine.rootContext()->setContextProperty("GroundCamMicroservice", groundCamMicroservice);
+    QObject::connect(openHDSettings, &OpenHDSettings::groundStationIPUpdated, groundCamMicroservice, &CamMicroservice::setGroundIP, Qt::QueuedConnection);
+    groundCamMicroservice->onStarted();
 
 
     auto statusLogModel = StatusLogModel::instance();
